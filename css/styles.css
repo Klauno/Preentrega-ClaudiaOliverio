@@ -69,7 +69,8 @@ padding: 20px;
     border-radius: 5px;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
-   
+    overflow-wrap: break-word; /* Para romper palabras largas */
+    word-wrap: break-word; /* Compatibilidad adicional */
 }
 
 .reseña:hover {
@@ -148,6 +149,11 @@ footer nav a:hover {
             border-width: 3px; 
             margin-bottom: 10px; /* Espacio entre reseñas */
             word-wrap: break-word; /* Asegura que el texto no se salga del contenedor */
+            word-wrap: break-word; /* Para compatibilidad adicional */
+        max-width: calc(100% - 30px); /* Asegura que no exceda el ancho del contenedor */
+        margin-left:auto; /* Centrar horizontalmente */
+        margin-right:auto; /* Centrar horizontalmente */
+        text-align:left; /* Alinear texto a la izquierda para mejor legibilidad */
         }
 }
 
