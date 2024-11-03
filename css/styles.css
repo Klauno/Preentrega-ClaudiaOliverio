@@ -149,12 +149,9 @@ footer nav a:hover {
             padding: 10px; 
             border-width: 3px; 
             margin-bottom: 10px; 
-            word-wrap: break-word; 
-            margin-left:auto; 
-            margin-right:auto; 
             text-align:left; 
-            width: auto;
-            display: block;
+            width: 100%;
+           
         }
 }
 
