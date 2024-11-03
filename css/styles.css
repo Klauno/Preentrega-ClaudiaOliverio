@@ -62,14 +62,11 @@ padding: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 15px;
-    margin: 20px 0;
-    background-size: cover; 
-    background-position: center;
-    padding: 20px; 
-    border-radius: 5px; 
    
 }
-
+#reseñas {
+    padding: 20px;
+}
 .reseña {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 15px;
@@ -141,7 +138,11 @@ footer nav a {
         } 
         footer nav a {
             font-size: 36px; 
-        }      
+        }  
+        .reseña {
+            font-size: 12px; 
+            padding: 10px; 
+        }        
 }
 
 
