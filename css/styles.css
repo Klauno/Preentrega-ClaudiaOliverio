@@ -71,6 +71,7 @@ padding: 20px;
     transition: transform 0.2s, box-shadow 0.2s;
     overflow-wrap: break-word; /* Para romper palabras largas */
     word-wrap: break-word; /* Compatibilidad adicional */
+   
 }
 
 .reseña:hover {
@@ -139,21 +140,21 @@ footer nav a:hover {
         margin: 10px;
         }
         .grid-container {
-            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); 
+            grid-template-columns: 1fr; 
             gap: 10px; 
         }
     
-        .reseña {
-            font-size: 14px; 
+    .reseña {
+            font-size: 8px; 
             padding: 10px; 
             border-width: 3px; 
             margin-bottom: 10px; /* Espacio entre reseñas */
             word-wrap: break-word; /* Asegura que el texto no se salga del contenedor */
-            word-wrap: break-word; /* Para compatibilidad adicional */
-        max-width: calc(100% - 30px); /* Asegura que no exceda el ancho del contenedor */
-        margin-left:auto; /* Centrar horizontalmente */
-        margin-right:auto; /* Centrar horizontalmente */
-        text-align:left; /* Alinear texto a la izquierda para mejor legibilidad */
+            max-width: calc(100% - 30px); /* Asegura que no exceda el ancho del contenedor */
+            margin-left:auto; /* Centrar horizontalmente */
+            margin-right:auto; /* Centrar horizontalmente */
+            text-align:left; /* Alinear texto a la izquierda para mejor legibilidad */
+            width: auto;
         }
 }
 
