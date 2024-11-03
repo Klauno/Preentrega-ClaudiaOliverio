@@ -140,6 +140,10 @@ footer nav a {
         .reseña {
             font-size: 14px; 
             padding: 10px; 
+            word-wrap: break-word; 
+            overflow-wrap: break-word; 
+            max-height: none; 
+            height: auto; 
         }        
 }
 
