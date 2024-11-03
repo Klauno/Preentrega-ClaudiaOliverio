@@ -140,7 +140,7 @@ footer nav a {
             grid-template-columns: 1fr; 
         } 
         footer nav a {
-            font-size: 24px; 
+            font-size: 36px; 
         }      
 }
 
@@ -159,7 +159,7 @@ html, body {
 .container {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    height: 100vh;
+    min-height: 100vh;
     border: 10px solid #ba35ee; 
     overflow-y: auto; 
     background: linear-gradient(to right, #dbb0e4, #32023b);
