@@ -4,9 +4,11 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+ 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); 
+    
 }
 
 header {
@@ -34,8 +36,8 @@ nav a {
 main {
 background-image: url('../imagenes/fondo.jpeg');
 background-size: cover;
-color: #333;
 padding: 20px;
+
 }
 
 .card-container {
@@ -84,12 +86,12 @@ padding: 20px;
 }
 
 form {
-    background-color: rgba(255, 255, 255, 0.9); 
+    background-color: rgba(168, 128, 177, 0.719);
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 20px rgba(73, 26, 112, 0.705); 
-    max-width: 500px; 
-    margin: auto; 
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgb(253, 253, 253);
+    max-width: 500px;
+    margin: auto;
 }
 
 form label {
@@ -146,8 +148,13 @@ html, body {
     display: grid;
     grid-template-rows: auto 1fr auto;
     height: 100vh;
-    border: 14px solid #4c1a85;
-   
+    border: 10px solid #ba35ee; 
+    overflow-y: auto; 
+    background: linear-gradient(to right, #dbb0e4, #32023b);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    
 }
 
 h2 {
