@@ -59,8 +59,8 @@ padding: 20px;
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
     margin: 20px 0;
     background-size: cover; 
     background-position: center;
@@ -76,8 +76,8 @@ padding: 20px;
     border-radius: 5px;
     text-align: center;
     transition: transform 0.2s;
-    max-width: 300px;
-   
+    max-width: 100%;
+    font-size: 14px;
 
 }
 
@@ -130,7 +130,11 @@ footer {
     form {
         width: 90%; 
         margin: 10px;
-}}
+        }
+    .grid-container {
+            grid-template-columns: 1fr; 
+        }    
+}
 
 
 .card img {
@@ -178,3 +182,6 @@ h2 {
     height: 300px;
 }
 p{color: #f4f4f4;}
+#productos p {
+    color: #000000; 
+}
