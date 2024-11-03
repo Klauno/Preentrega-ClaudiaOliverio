@@ -128,10 +128,7 @@ footer {
         }
     .grid-container {
             grid-template-columns: 1fr; 
-        } 
-        footer nav a {
-            font-size: 24px; 
-        }      
+        }    
 }
 
 
