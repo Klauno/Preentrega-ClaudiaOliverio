@@ -29,11 +29,20 @@ nav ul {
 nav ul li {
     display: inline-block;
     margin: 0 15px;
+    padding: 5px 10px; /* Espaciado alrededor del texto */
+    border: 2px solid transparent; /* Borde inicial transparente */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, border-color 0.3s; /* Transición suave */
 }
 
 nav a {
     color: white;
     text-decoration: none;
+}
+
+nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.226); /* Fondo al pasar el ratón */
+    border-color: white; /* Cambiar color del borde al pasar el ratón */
 }
 
 main {
@@ -217,4 +226,12 @@ p{color: #f4f4f4;}
         font-size: 1.5rem;
         margin-top: 20px;
         }    
+}
+.terminos-privacidad {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.terminos-privacidad input[type="checkbox"] {
+    margin-right: 10px; /* Espacio entre la casilla y el texto */
 }
