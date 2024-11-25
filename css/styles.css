@@ -66,7 +66,7 @@ padding: 20px;
     margin: 10px;
     text-align: center;
     width: 200px;
-    height: 350px; 
+    height: 450px; 
     overflow: hidden;}
 
 .grid-container {
@@ -234,4 +234,29 @@ p{color: #f4f4f4;}
 
 .terminos-privacidad input[type="checkbox"] {
     margin-right: 10px; /* Espacio entre la casilla y el texto */
+}
+
+/*estilo para el boton*/
+button {
+    background-color: #612981; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 15px; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar como bloque en línea */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 10px 2px; /* Margen alrededor del botón */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave para el color de fondo y transformación */
+}
+
+button:hover {
+    background-color: #b38bd8; /* Color de fondo más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el ratón */
+}
+
+button:active {
+    transform: scale(0.95); /* Disminuir el tamaño al hacer clic */
 }

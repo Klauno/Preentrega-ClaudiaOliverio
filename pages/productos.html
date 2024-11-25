@@ -7,59 +7,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="../imagenes/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
     <title>Avios Textiles - Productos</title>
 </head>
 <body>
     <div class="container">
     <header>
         <h1>Avios Textiles</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="reseñas.html">Reseñas</a></li>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: hsl(261, 71%, 73%);">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="productos.html">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contacto.html">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="reseñas.html">Reseñas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a>
+                </li>
             </ul>
-        </nav>
+        </div>
+    </nav>
     </header>
 
-    <main>
-        <section id="productos">
-            <h2>Productos</h2>
-            <div class="card-container">
-                <div class="card">
-                    <img src="../imagenes/productos/2148212683.jpg" alt="Planta 1">
-                    <h3>Cierres</h3>
-                    <p>$1000.00</p>
+     <main>
+            <section id="productos">
+                <h2>Productos</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="../imagenes/productos/2148212683.jpg" alt="Cierres">
+                        <h3>Cierres</h3>
+                        <p>$1000.00</p>
+                        <!-- Campo para seleccionar cantidad -->
+                        <input type="number" min="1" value="1" id="quantity-1" style="width: 60px;">
+                        <button onclick="addToCart(1, 1000)">Añadir al carrito</button> <!-- Llama a la función addToCart -->
+                    </div>
+                    <div class="card">
+                        <img src="../imagenes/productos/2148145993.jpg" alt="Hilos">
+                        <h3>Hilos</h3>
+                        <p>$1500.00</p>
+                        <!-- Campo para seleccionar cantidad -->
+                        <input type="number" min="1" value="1" id="quantity-2" style="width: 60px;">
+                        <button onclick="addToCart(2, 1500)">Añadir al carrito</button> <!-- Llama a la función addToCart -->
+                    </div>
+                    <div class="card">
+                        <img src="../imagenes/productos/2148283562.jpg" alt="Moños">
+                        <h3>Moños</h3>
+                        <p>$20.00</p>
+                        <!-- Campo para seleccionar cantidad -->
+                        <input type="number" min="1" value="1" id="quantity-3" style="width: 60px;">
+                        <button onclick="addToCart(3, 20)">Añadir al carrito</button> <!-- Llama a la función addToCart -->
+                    </div>
+                    <div class="card">
+                        <img src="../imagenes/productos/agujas.jpeg" alt="Agujas">
+                        <h3>Agujas</h3>
+                        <p>$500.00</p>
+                        <!-- Campo para seleccionar cantidad -->
+                        <input type="number" min="1" value="1" id="quantity-4" style="width: 60px;">
+                        <button onclick="addToCart(4, 500)">Añadir al carrito</button> <!-- Llama a la función addToCart -->
+                    </div>
+                    <div class="card">
+                        <img src="../imagenes/productos/2147890031.jpg" alt="Alfileres">
+                        <h3>Alfileres</h3>
+                        <p>$1500.00</p>
+                        <!-- Campo para seleccionar cantidad -->
+                        <input type="number" min="1" value="1" id="quantity-5" style="width: 60px;">
+                        <button onclick="addToCart(5, 1500)">Añadir al carrito</button> <!-- Llama a la función addToCart -->
+                    </div>
+                    <div class="card">
+                        <img src="../imagenes/productos/buttons-628819_1280.jpg" alt="Botones">
+                        <h3>Botones</h3>
+                        <p>$200.00</p>
+                        <!-- Campo para seleccionar cantidad -->
+                        <input type="number" min="1" value="1" id="quantity-6" style="width: 60px;">
+                        <button onclick="addToCart(6, 200)">Añadir al carrito</button> <!-- Llama a la función addToCart -->
+                    </div>
+
                 </div>
-                <div class="card">
-                    <img src="../imagenes/productos/2148145993.jpg" alt="Planta 2">
-                    <h3>Hilos</h3>
-                    <p>$1500.00</p>
-                </div>
-                <div class="card">
-                    <img src="../imagenes/productos/2148283562.jpg" alt="Planta 3">
-                    <h3>Moños para lenceria</h3>
-                    <p>$20.00</p>
-                </div>
-                <div class="card">
-                    <img src="../imagenes/productos/agujas.jpeg" alt="Planta 1">
-                    <h3>Agujas</h3>
-                    <p>$500.00</p>
-                </div>
-                <div class="card">
-                    <img src="../imagenes/productos/2147890031.jpg" alt="Planta 2">
-                    <h3>Alfileres</h3>
-                    <p>$1500.00</p>
-                </div>
-                <div class="card">
-                    <img src="../imagenes/productos/buttons-628819_1280.jpg" alt="Planta 3">
-                    <h3>Botones</h3>
-                    <p>$200.00</p>
-                </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
     <footer>
         <nav>
@@ -73,5 +108,7 @@
         <p>&copy; 2024 Avios Textiles</p>
     </footer>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js integrity=sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx crossorigin=anonymous></script>
 </body>
 </html>
