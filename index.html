@@ -18,21 +18,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/productos.html">Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/contacto.html">Contacto</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/reseñas.html">Reseñas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="pages/reseñas.html">Reseñas</a> </li>
+                        <li class="nav-item"><a class="nav-link" href="pages/ubicacion.html">Ubicacion</a></li>  
+                        <li class="nav-item"><a class="nav-link" href="pages/carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
                     </ul>
                 </div>
             </nav>
@@ -48,38 +39,80 @@
 
             <section id="productos-destacados">
                 <h2>Productos Destacados del Mes</h2>
-                <div class="grid-container">
-                    <div class="producto">
-                        <img src="imagenes/productos/2148145993.jpg" alt="Descripción del Producto 1" />
-                        <h3>Hilos</h3>  
+                
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <!-- Imágenes del carrusel -->
+                        <div class="carousel-item active">
+                            <img src="imagenes/productos/buttons-628819_1280.jpg" alt="Imagen 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imagenes/productos/2148145993.jpg" alt="Imagen 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imagenes/productos/OIP.jpeg" alt="Imagen 3">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imagenes/productos/2148212683.jpg" alt="Imagen 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="imagenes/productos/2148283562.jpg" alt="Imagen 3">
+                        </div>
                     </div>
-                    <div class="producto">
-                        <img src="imagenes/productos/2148212683.jpg" alt="Descripción del Producto 2" />
-                        <h3>Cierres</h3>  
-                    </div>
-                    <div class="producto">
-                        <img src="imagenes/productos/2148283562.jpg" alt="Descripción del Producto 3" />
-                        <h3>Moños</h3>  
+                    <div class="button-container">
+                        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                        <button class="next" onclick="moveSlide(1)">&#10095;</button>
                     </div>
                 </div>
+                
             </section>
 
             <section id="reseñas">
                 <h2>Reseñas</h2>
                 <div class="grid-container">
-                    <div class="reseña">"Desde que comencé a trabajar con Avios Textiles K, mi experiencia ha sido excepcional. La variedad de insumos que ofrecen es impresionante y han simplificado nuestro proceso de producción. Su atención al cliente es inmejorable, siempre están dispuestos a ayudar y encontrar la mejor solución para nuestras necesidades. ¡Altamente recomendadas!"</div>
-                    <div class="reseña">"Como emprendedor en la industria textil, puedo decir que Avios Textiles K es una joya. Su amplia gama de insumos y productos de mercería nos ha permitido concentrarnos en nuestro crecimiento sin preocuparnos por la calidad de los materiales. Además, el equipo es muy profesional y siempre está dispuesto a ayudar. ¡Gracias, Avios!"</div>
-                    <div class="reseña">"La variedad de productos que ofrece Avios Textiles K es simplemente asombrosa. Desde etiquetas hasta envases, todo lo que necesitamos lo encontramos en un solo lugar. Esto ha hecho que nuestra planificación y logística sean mucho más sencillas. ¡No puedo imaginar trabajar sin ellos!"</div>
-                    <div class="reseña">"He trabajado con varios proveedores en el pasado, pero Avios Textiles K se destaca por la calidad de sus productos. Desde el primer pedido, la diferencia fue evidente. Su compromiso con la innovación y el servicio al cliente es admirable. Definitivamente seguiré confiando en ellos."</div>
-                    <div class="reseña"> "Desde que comencé a trabajar con Avios Textiles, he notado una mejora significativa en la calidad de mis productos. Sus materiales son duraderos y tienen un acabado impecable. Además, el equipo siempre está dispuesto a ayudar y resolver cualquier duda. Sin duda, seguiré colaborando con ellos en el futuro."</div>
-                    <div class="reseña"> "Avios Textiles ha sido un proveedor clave para mis proyectos. La variedad de avíos que ofrecen es impresionante, y la calidad es siempre consistente. Me encanta que están constantemente innovando y buscando nuevas soluciones para sus clientes. Definitivamente, son mi primera opción cuando necesito insumos textiles."</div>
-                    <div class="reseña"> "La experiencia de compra con Avios Textiles ha sido excepcional. No solo ofrecen productos de alta calidad, sino que su atención al cliente es insuperable. Siempre están dispuestos a ayudarme a encontrar lo que busco y resolver cualquier problema rápidamente. Es un placer trabajar con ellos."</div>  
+                    <div class="reseña">
+                        "Desde que comencé a trabajar con Avios Textiles K, mi experiencia ha sido excepcional. La variedad de insumos que ofrecen es impresionante y han simplificado nuestro proceso de producción. Su atención al cliente es inmejorable, siempre están dispuestos a ayudar y encontrar la mejor solución para nuestras necesidades. ¡Altamente recomendadas!"<br><br>
+                        - Laura Fernández, Dueña de Taller Textil Fernández.
+                    </div>
+                    <div class="reseña">
+                        "Como emprendedor en la industria textil, puedo decir que Avios Textiles K es una joya. Su amplia gama de insumos y productos de mercería nos ha permitido concentrarnos en nuestro crecimiento sin preocuparnos por la calidad de los materiales. Además, el equipo es muy profesional y siempre está dispuesto a ayudar. ¡Gracias, Avios!"<br><br>
+                        - Javier Martínez, Fundador de Moda Joven.
+                    </div>
+                    <div class="reseña">
+                        "La variedad de productos que ofrece Avios Textiles K es simplemente asombrosa. Desde etiquetas hasta envases, todo lo que necesitamos lo encontramos en un solo lugar. Esto ha hecho que nuestra planificación y logística sean mucho más sencillas. ¡No puedo imaginar trabajar sin ellos!"<br><br>
+                        - Ana Gómez, Gerente de Producción en Creativa S.A.
+                    </div>
+                    <div class="reseña">
+                        "He trabajado con varios proveedores en el pasado, pero Avios Textiles K se destaca por la calidad de sus productos. Desde el primer pedido, la diferencia fue evidente. Su compromiso con la innovación y el servicio al cliente es admirable. Definitivamente seguiré confiando en ellos."<br><br>
+                        - Carlos Ruiz, CEO de Confecciones Ruiz.
+                    </div>
+                    <div class="reseña">
+                        "Desde que comencé a trabajar con Avios Textiles, he notado una mejora significativa en la calidad de mis productos. Sus materiales son duraderos y tienen un acabado impecable. Además, el equipo siempre está dispuesto a ayudar y resolver cualquier duda. Sin duda, seguiré colaborando con ellos en el futuro."<br><br>
+                        - Mariana López, Propietaria de Boutique Chic.
+                    </div>
+                    <div class="reseña">
+                        "Avios Textiles ha sido un proveedor clave para mis proyectos. La variedad de avíos que ofrecen es impresionante, y la calidad es siempre consistente. Me encanta que están constantemente innovando y buscando nuevas soluciones para sus clientes. Definitivamente, son mi primera opción cuando necesito insumos textiles."<br><br>
+                        - Roberto Pérez, Director de Proyectos en Innovatextil.
+                    </div>
+                    <div class="reseña">
+                        "La experiencia de compra con Avios Textiles ha sido excepcional. No solo ofrecen productos de alta calidad, sino que su atención al cliente es insuperable. Siempre están dispuestos a ayudarme a encontrar lo que busco y resolver cualquier problema rápidamente. Es un placer trabajar con ellos."<br><br>
+                        - Sofía Torres, Coordinadora de Compras en Estilo & Diseño.
+                    </div>  
                 </div>
             </section>
         </main>
 
         <footer>
             <nav>
+                 <!-- Suscripción al boletín -->
+                <form action="suscripcion.php" method="post">
+                  <label for="email">Suscríbete a nuestro boletín:</label>
+                  <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com" required>
+                  <button type="submit">Suscribirse</button>
+                </form>
+                <!-- Mensaje sobre redes sociales -->
+                <p>Síguenos en nuestras redes sociales para estar al tanto de las últimas novedades.</p>
+
                 <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook" style="color: blue;"></i></a> 
                 <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin" style="color: rgb(32, 131, 218);"></i></a> 
                 <a href="https://github.com" target="_blank"><i class="fab fa-github" style="color: rgb(26, 26, 86);"></i></a> 
@@ -87,13 +120,15 @@
                 <a href="https://wa.me/541122527518" target="_blank"><i class="fab fa-whatsapp" style="color: #146130;"></i></a>
                 <a href="mailto:info@tiendajardineria.com"><i class="fas fa-envelope" style="color: #c6ccc9;"></i></a>
             </nav>
-            <p>&copy; 2024 Avios Textiles</p>
+            <p>&copy; 2024 Avios Textiles.Todos los derechos reservados. </p>
         </footer>
+        
     </div>
 
     <!-- Scripts -->
+    <script src="js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js integrity=sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx crossorigin=anonymous></script>
-
+    
 </body>
 </html>

@@ -1,0 +1,215 @@
+// Función para obtener productos de la API
+async function fetchProducts() {
+    try {
+        const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=merceria');
+        if (!response.ok) throw new Error('Error en la red');
+        const products = await response.json();
+        displayProducts(products.results); // Asegúrate de acceder a 'results'
+    } catch (error) {
+        console.error('Error fetching products:', error);
+        alert('No se pudieron cargar los productos.');
+    }
+}
+
+// Función para mostrar productos en el DOM
+function displayProducts(products) {
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = ''; // Limpiar contenido previo
+    products.forEach(product => {
+        const productCard = `
+            <div class='card'>
+                <div class='card-info'>
+                    <img src='${product.thumbnail}' alt='${product.title}' /> <!-- Cargar la imagen aquí -->
+                    <h3>${product.title}</h3>
+                    <p>$${product.price.toFixed(2)}</p>
+                </div>
+                <div class='card-actions'>
+                    <input type='number' min='1' value='1' id='quantity-${product.id}' style='width: 60px;'>
+                    <button onclick='addToCart("${product.id}", ${product.price})'>Añadir al carrito</button>
+                </div>
+            </div>`;
+        productList.innerHTML += productCard;
+    });
+}
+
+// Función para obtener un producto por ID
+async function fetchProduct(productId) {
+    const response = await fetch(`https://api.mercadolibre.com/items/${productId}`);
+    
+    if (!response.ok) throw new Error('Error al obtener el producto');
+    
+    return response.json(); // Asegúrate de que esto devuelva el objeto completo del producto
+}
+
+// Función para agregar productos al carrito (localStorage)
+function addToCart(productId, productPrice) {
+    const quantityInput = document.getElementById(`quantity-${productId}`);
+    const quantity = parseInt(quantityInput.value);
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Obtener el producto para añadir su información
+    fetchProduct(productId).then(product => {
+        const existingProductIndex = cart.findIndex(item => item.id === productId);
+        
+        if (existingProductIndex > -1) {
+            cart[existingProductIndex].quantity += quantity; // Actualizar cantidad
+        } else {
+            cart.push({ 
+                id: productId, 
+                price: productPrice, 
+                quantity, 
+                thumbnail: product.thumbnail, // Almacenar la URL de la imagen
+                title: product.title // Almacenar el título del producto
+            }); 
+        }
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`Se han agregado ${quantity} unidades del producto ${productId} al carrito`);
+    }).catch(error => {
+        console.error('Error al agregar al carrito:', error);
+    });
+}
+
+// Función para mostrar los productos en el carrito
+async function displayCart() {
+    const cartItemsContainer = document.getElementById('cart-items-container');
+    cartItemsContainer.innerHTML = ''; // Limpiar contenido previo
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let total = 0; // Inicializar total
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p>El carrito está vacío.</p>';
+        document.getElementById('total').innerText = 'Total: $0.00';
+        return;
+    }
+
+    for (const item of cart) {
+        console.log(`Cargando producto ID: ${item.id}, Thumbnail: ${item.thumbnail}`); // Para depuración
+        const itemTotal = item.price * item.quantity; // Calcular total por ítem
+        total += itemTotal; // Sumar al total general
+        
+        const cartItem = `
+            <div class='card' id='cart-item-${item.id}'>
+                <div class='card-info'>
+                    <img src='${item.thumbnail}' alt='${item.title}' /> <!-- Usar la URL de la imagen almacenada -->
+                    <h5>${item.title}</h5> <!-- Mostrar el título del producto -->
+                    <p class= "car">Precio: $${item.price} x ${item.quantity} unidades</p>
+                    <p class= "car">Total por producto: $${itemTotal.toFixed(2)}</p>
+                </div>
+                <div class='card-actions'>
+                    Cantidad: 
+                    <input type='number' min='1' value='${item.quantity}' id='quantity-${item.id}' style='width: 60px;' onchange='updateQuantity("${item.id}")'>
+                    <button onclick='addMore("${item.id}", ${item.price})' class='btn btn-success'>Agregar</button>
+                    <button onclick='removeOneFromCart("${item.id}")' class='btn btn-warning'>Eliminar una unidad</button>
+                    <button onclick='removeFromCart("${item.id}")' class='btn btn-danger'>Eliminar todo</button>
+                </div>
+            </div>`;
+        
+        cartItemsContainer.innerHTML += cartItem; 
+    }
+
+    // Actualizar el total en la interfaz
+    document.getElementById('total').innerText = `Total: $${total.toFixed(2)}`;
+}
+
+
+// Función para agregar más unidades de un producto en el carrito
+function addMore(productId, productPrice) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    const existingProductIndex = cart.findIndex(item => item.id === productId);
+    
+    if (existingProductIndex > -1) {
+        cart[existingProductIndex].quantity += 1; // Incrementar cantidad
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart(); // Actualizar visualización del carrito
+    }
+}
+
+// Función para actualizar la cantidad de un producto en el carrito
+function updateQuantity(productId) {
+    const quantityInput = document.getElementById(`quantity-${productId}`);
+    const newQuantity = parseInt(quantityInput.value);
+    
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    const existingProductIndex = cart.findIndex(item => item.id === productId);
+    
+    if (existingProductIndex > -1 && newQuantity > 0) {
+        cart[existingProductIndex].quantity = newQuantity; // Actualizar cantidad
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart(); // Actualizar visualización del carrito
+    }
+}
+
+// Función para eliminar una unidad del carrito
+function removeOneFromCart(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    const existingProductIndex = cart.findIndex(item => item.id === productId);
+    
+    if (existingProductIndex > -1) {
+        const userConfirmed = confirm(`¿Estás seguro de que deseas eliminar una unidad del producto ${productId}?`);
+        
+        if (userConfirmed) {
+            if (cart[existingProductIndex].quantity > 1) {
+                cart[existingProductIndex].quantity -= 1;
+            } else { 
+                alert(`Producto ${productId} eliminado del carrito`);
+                cart.splice(existingProductIndex, 1); // Eliminar producto si cantidad es 0
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart(); // Actualizar visualización del carrito
+        }
+    }
+}
+
+// Función para eliminar completamente un producto del carrito
+function removeFromCart(productId) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    const userConfirmed = confirm(`¿Estás seguro de que deseas eliminar el producto ${productId} del carrito?`);
+    
+    if (userConfirmed) {
+        cart = cart.filter(item => item.id !== productId);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`Producto ${productId} eliminado del carrito`);
+        displayCart(); // Actualizar visualización del carrito
+    }
+}
+
+// Evento para vaciar el carrito
+document.getElementById('clear-cart')?.addEventListener('click', () => {
+    const userConfirmed = confirm("¿Quieres vaciar el carrito? Si lo haces, no podrás deshacer esta acción.");
+    
+    if (userConfirmed) {
+        localStorage.removeItem('cart'); // Vaciar el carrito
+        displayCart(); // Actualizar visualización del carrito
+        alert("El carrito ha sido vaciado.");
+    } else {
+        alert("El carrito no se ha vaciado."); // Confirmación de que no se realizó la acción
+    }
+});
+
+// Función para manejar la compra
+document.getElementById('buy-button')?.addEventListener('click', () => {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    if (cart.length === 0) {
+        alert("El carrito está vacío. Agrega productos antes de comprar.");
+        return;
+    }
+    
+    alert("Compra realizada con éxito! Gracias por su compra."); 
+   
+   // Limpiar el carrito después de comprar 
+   localStorage.removeItem('cart'); 
+   displayCart(); // Actualizar visualización del carrito 
+});
+
+// Mostrar los productos en el carrito al cargar la página si estamos en la página del carrito 
+if (window.location.pathname.includes("carrito.html")) { 
+   displayCart(); 
+} else { 
+   fetchProducts(); // Llamar a la función para obtener productos al cargar la página 
+}

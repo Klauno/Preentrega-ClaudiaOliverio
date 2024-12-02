@@ -19,21 +19,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="productos.html">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contacto.html">Contacto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="reseñas.html">Reseñas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" href="reseñas.html">Reseñas</a></li>
+                <li class="nav-item"><a class="nav-link" href="ubicacion.html">Ubicacion</a></li> 
+                <li class="nav-item"><a class="nav-link" href="carrito.html"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
             </ul>
         </div>
     </nav>
@@ -69,7 +60,7 @@
                     <input type="checkbox" id="terminos" name="terminos" required>
                     <label for="terminos">
                         Acepto los 
-                        <a href="./politica-de-privacidad.html" target="_blank">Términos y Condiciones</a> 
+                        <a href="./terminos-y-condiciones.html" target="_blank">Términos y Condiciones</a> 
                         y la 
                         <a href="./politica-de-privacidad.html" target="_blank">Política de Privacidad</a>.
                     </label>
@@ -84,6 +75,15 @@
 
     <footer>
         <nav>
+             <!-- Suscripción al boletín -->
+            <form action="suscripcion.php" method="post">
+              <label for="email">Suscríbete a nuestro boletín:</label>
+              <input type="email" id="email" name="email" placeholder="tuemail@ejemplo.com" required>
+              <button type="submit">Suscribirse</button>
+            </form>
+            <!-- Mensaje sobre redes sociales -->
+            <p>Síguenos en nuestras redes sociales para estar al tanto de las últimas novedades.</p>
+
             <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook" style="color: blue;"></i></a> 
             <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin" style="color: rgb(32, 131, 218);"></i></a> 
             <a href="https://github.com" target="_blank"><i class="fab fa-github" style="color: rgb(26, 26, 86);"></i></a> 
@@ -91,10 +91,11 @@
             <a href="https://wa.me/541122527518" target="_blank"><i class="fab fa-whatsapp" style="color: #146130;"></i></a>
             <a href="mailto:info@tiendajardineria.com"><i class="fas fa-envelope" style="color: #c6ccc9;"></i></a>
         </nav>
-    <p>&copy; 2024 Avios Textiles</p>
+        <p>&copy; 2024 Avios Textiles.Todos los derechos reservados. </p>
     </footer>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js integrity=sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx crossorigin=anonymous></script>
 </body>
 </html>

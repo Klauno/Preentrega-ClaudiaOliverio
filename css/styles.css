@@ -1,14 +1,16 @@
+/* Estilos Globales */
 * {
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    padding: 0;
     background-color: #f4f4f4; 
+    margin: 0;
+    padding: 20px;
     
 }
-
+/* Estilos del Header */
 header {
     background: linear-gradient(to right, hsl(261, 71%, 77%), #4c1a85);
     color: white;
@@ -20,7 +22,7 @@ header h1 {
     font-size: 2rem;
     margin: 0;
 }
-
+/* Estilos de Navegación */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -44,14 +46,14 @@ nav ul li:hover {
     background-color: rgba(255, 255, 255, 0.226); /* Fondo al pasar el ratón */
     border-color: white; /* Cambiar color del borde al pasar el ratón */
 }
-
+/* Estilos del Main */
 main {
 background-image: url('../imagenes/fondo.jpeg');
 background-size: cover;
 padding: 20px;
 
 }
-
+/* Estilos de las Tarjetas */
 .card-container {
     display: flex;
     justify-content: space-around;
@@ -64,11 +66,38 @@ padding: 20px;
     border-radius: 5px;
     padding: 15px;
     margin: 10px;
-    text-align: center;
-    width: 200px;
-    height: 450px; 
-    overflow: hidden;}
+    width: 200px; /* Ancho fijo */
+    height: 300px; /* Altura fija */
+    display: flex;
+    flex-direction: column; /* Para apilar los elementos verticalmente */
+}
 
+.card-info {
+    flex-grow: 1; /* Permite que esta sección crezca */
+    overflow-y: auto; /* Permite el desplazamiento si el contenido es demasiado grande */
+}
+
+.card img {
+    width: 100%;
+}
+
+.card-actions {
+   text-align: center; /* Centra los botones y el input */
+   margin-top: auto; /* Empuja esta sección hacia abajo */
+}
+
+/* Estilos para la sección del carrito */
+#cart-items-container {
+    display: flex; /*flexbox para organizar los elementos */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten a múltiples líneas */
+    gap: 10px; /* Espacio entre tarjetas */
+    justify-content: space-around; /* Distribuye el espacio entre tarjetas */
+    max-height: calc(100vh - 200px);  /*Altura máxima con margen */
+    overflow-y: auto; /* desplazamiento vertical */
+ }
+.car {
+    color: black; /* Cambia el color del texto a negro */
+}
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -114,7 +143,7 @@ form input, form textarea {
     border: 4px solid #a78cb9;
     border-radius: 5px;
 }
-
+/* Estilos del Footer */
 footer {
     text-align: center;
     padding: 10px 0;
@@ -134,12 +163,7 @@ footer nav a:hover {
     transform: scale(1.1); 
 }
 
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-}
+
 html, body {
     height: 100%; 
     margin: 0;
@@ -176,7 +200,7 @@ h2 {
     text-align: center;
     height: 300px;
 }
-p{color: #f4f4f4;}
+p{color: #f3eeee;}
 #productos p {
     color: #000000; 
 }
@@ -205,6 +229,9 @@ p{color: #f4f4f4;}
         padding-left: 0;
         margin-bottom: 20px; 
     }
+    .card {
+        width: 90%; /* Ancho más pequeño en pantallas pequeñas */
+    }
     form {
         width: 90%; 
         margin: 10px;
@@ -228,7 +255,7 @@ p{color: #f4f4f4;}
         }    
 }
 .terminos-privacidad {
-    display: flex; /* Usar flexbox para alinear los elementos */
+    display: flex; /* flexbox para alinear los elementos */
     align-items: center; /* Centrar verticalmente */
 }
 
@@ -241,12 +268,13 @@ button {
     background-color: #612981; /* Color de fondo verde */
     color: white; /* Color del texto */
     border: none; /* Sin borde */
-    padding: 10px 15px; /* Espaciado interno */
+    padding: 5px 10px; /* Espaciado interno */
     text-align: center; /* Centrar el texto */
     text-decoration: none; /* Sin subrayado */
-    display: inline-block; /* Mostrar como bloque en línea */
-    font-size: 16px; /* Tamaño de fuente */
+    display: inline-block; /* bloque en línea */
+    font-size: 14px; /* Tamaño de fuente */
     margin: 10px 2px; /* Margen alrededor del botón */
+    margin-top: 5px; /* Espacio entre los botones */
     cursor: pointer; /* Cambiar cursor al pasar por encima */
     border-radius: 5px; /* Bordes redondeados */
     transition: background-color 0.3s, transform 0.2s; /* Transición suave para el color de fondo y transformación */
@@ -259,4 +287,92 @@ button:hover {
 
 button:active {
     transform: scale(0.95); /* Disminuir el tamaño al hacer clic */
+}
+
+.carousel {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: contain; /* Ajusta la imagen para encajar dentro del contenedor sin recortarse */
+    max-height: 300px; /* Limita la altura máxima para evitar que se vea gigante */
+}
+
+/* Contenedor de botones centrado */
+.button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra los botones */
+    display: flex; /* Utiliza Flexbox para alinear los botones */
+    justify-content: space-between; /* Espacio entre los botones */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+.prev {
+    left: 10px;
+    
+}
+
+.next {
+    right: 10px;
+}
+
+
+
+/* estilo ubicacion */
+.contenedorPrincipal {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px; 
+    text-align: center; 
+}
+
+.contenedorPrincipal h3 {
+    font-size: 1.5em; 
+    margin: 5px 0;
+    color: #f4f4f4;
+}
+/* Map */
+.mapa {
+    width: 100%; 
+    height: 300px;
+    border: none; 
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    
+    .contenedorPrincipal h3 {
+        font-size: 1.2em; 
+    }
+
+    .mapa {
+        height: 200px; 
+    }
+}
+/* terminos y condiciones y privacidad*/
+ul {
+    margin-left: 20px;
+    color: white; 
+    background-color: transparent; 
+}
+li {
+    color: white; 
+    padding: 5px; 
+    margin-bottom: 5px; 
 }
