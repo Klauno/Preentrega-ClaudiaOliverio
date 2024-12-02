@@ -1,5 +1,8 @@
+
 // Función para obtener productos de la API
 async function fetchProducts() {
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = '<h2>Cargando productos...</h2>'; // Indicador de carga
     try {
         const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=merceria');
         if (!response.ok) throw new Error('Error en la red');
