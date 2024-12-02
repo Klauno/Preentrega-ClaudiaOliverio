@@ -17,8 +17,8 @@ function displayProducts(products) {
     productList.innerHTML = ''; // Limpiar contenido previo
     products.forEach(product => {
         const productCard = `
-            <div class='card'>
-                <div class='card-info'>
+             <div class='card' id='product-${product.id}'>
+                <div class='card-info' >
                     <img src='${product.thumbnail}' alt='${product.title}' /> <!-- Cargar la imagen aquí -->
                     <h3>${product.title}</h3>
                     <p>$${product.price.toFixed(2)}</p>
@@ -26,10 +26,47 @@ function displayProducts(products) {
                 <div class='card-actions'>
                     <input type='number' min='1' value='1' id='quantity-${product.id}' style='width: 60px;'>
                     <button onclick='addToCart("${product.id}", ${product.price})'>Añadir al carrito</button>
+               <button onclick='showDescription("${product.id}")'>Ver descripción</button> <!-- Botón de descripción -->
+                </div>
+                <div class='product-description' id='description-${product.id}' style='display: none;'>
+                    <!-- Aquí se insertará la descripción -->
                 </div>
             </div>`;
+            
         productList.innerHTML += productCard;
     });
+}
+
+// Función para mostrar la descripción del producto
+async function showDescription(productId) {
+    const descriptionContainer = document.getElementById(`description-${productId}`);
+
+    // Si ya se muestra la descripción, alterna su visibilidad
+    if (descriptionContainer.style.display === 'block') {
+        descriptionContainer.style.display = 'none';
+        return;
+    }
+
+    try {
+        // Obtén los detalles del producto desde la API
+        const response = await fetch(`https://api.mercadolibre.com/items/${productId}`);
+        if (!response.ok) throw new Error('Error al obtener la descripción del producto');
+
+        const productDetails = await response.json();
+
+        // Usa condition para mostrar si es nuevo o usado
+        const condition = productDetails.condition === 'new' ? 'Nuevo' : 'Usado';
+        const description = productDetails.description || 'Descripción no disponible';
+
+        // Actualiza el contenedor con la descripción
+        descriptionContainer.innerHTML = `
+            <p><strong>Condición:</strong> ${condition}</p>
+            <p><strong>Descripción:</strong> ${description}</p>`;
+        descriptionContainer.style.display = 'block';
+    } catch (error) {
+        console.error('Error al obtener la descripción:', error);
+        alert('No se pudo cargar la descripción del producto.');
+    }
 }
 
 // Función para obtener un producto por ID
@@ -40,7 +77,6 @@ async function fetchProduct(productId) {
     
     return response.json(); // Asegúrate de que esto devuelva el objeto completo del producto
 }
-
 // Función para agregar productos al carrito (localStorage)
 function addToCart(productId, productPrice) {
     const quantityInput = document.getElementById(`quantity-${productId}`);
