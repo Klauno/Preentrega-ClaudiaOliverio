@@ -1,0 +1,15 @@
+{
+  "name": "prenterga-claudiaoliverio",
+  "version": "1.0.0",
+  "description": "- [Tabla de Contenidos](#tabla-de-contenidos)\r   - [Descripción](#descripción)\r   - [Agradecimientos](#agradecimientos)\r   - [Instalación](#instalación)\r   - [usos](#usos)\r   - [tecnologias utilizadas](#tecnologias-utilizadas)\r   - [Licencia](#licencia)\r ## Descripción\r Este proyecto consiste en una aplicación web que permite a los usuarios navegar y visualizar productos. Los datos de los productos son obtenidos dinámicamente a través de una API externa, lo que permite mantener la información actualizada y relevante. La interfaz ha sido diseñada para ser responsiva, garantizando una buena experiencia de usuario en dispositivos móviles y de escritorio.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
