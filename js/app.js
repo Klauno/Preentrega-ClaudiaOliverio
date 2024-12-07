@@ -7,7 +7,7 @@ async function fetchProducts() {
         const response = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=merceria');
         if (!response.ok) throw new Error('Error en la red');
         const products = await response.json();
-        displayProducts(products.results); // Asegúrate de acceder a 'results'
+        displayProducts(products.results);
     } catch (error) {
         console.error('Error fetching products:', error);
         alert('No se pudieron cargar los productos.');
@@ -78,7 +78,7 @@ async function fetchProduct(productId) {
     
     if (!response.ok) throw new Error('Error al obtener el producto');
     
-    return response.json(); // Asegúrate de que esto devuelva el objeto completo del producto
+    return response.json(); 
 }
 // Función para agregar productos al carrito (localStorage)
 function addToCart(productId, productPrice) {
@@ -91,14 +91,14 @@ function addToCart(productId, productPrice) {
         const existingProductIndex = cart.findIndex(item => item.id === productId);
         
         if (existingProductIndex > -1) {
-            cart[existingProductIndex].quantity += quantity; // Actualizar cantidad
+            cart[existingProductIndex].quantity += quantity; // Actualiza cantidad
         } else {
             cart.push({ 
                 id: productId, 
                 price: productPrice, 
                 quantity, 
-                thumbnail: product.thumbnail, // Almacenar la URL de la imagen
-                title: product.title // Almacenar el título del producto
+                thumbnail: product.thumbnail, // Almacena la URL de la imagen
+                title: product.title // Almacena el título del producto
             }); 
         }
         
@@ -161,7 +161,7 @@ function addMore(productId, productPrice) {
     if (existingProductIndex > -1) {
         cart[existingProductIndex].quantity += 1; // Incrementar cantidad
         localStorage.setItem('cart', JSON.stringify(cart));
-        displayCart(); // Actualizar visualización del carrito
+        displayCart();
     }
 }
 
@@ -177,7 +177,7 @@ function updateQuantity(productId) {
     if (existingProductIndex > -1 && newQuantity > 0) {
         cart[existingProductIndex].quantity = newQuantity; // Actualizar cantidad
         localStorage.setItem('cart', JSON.stringify(cart));
-        displayCart(); // Actualizar visualización del carrito
+        displayCart(); 
     }
 }
 
@@ -198,7 +198,7 @@ function removeOneFromCart(productId) {
                 cart.splice(existingProductIndex, 1); // Eliminar producto si cantidad es 0
             }
             localStorage.setItem('cart', JSON.stringify(cart));
-            displayCart(); // Actualizar visualización del carrito
+            displayCart(); 
         }
     }
 }
@@ -213,7 +213,7 @@ function removeFromCart(productId) {
         cart = cart.filter(item => item.id !== productId);
         localStorage.setItem('cart', JSON.stringify(cart));
         alert(`Producto ${productId} eliminado del carrito`);
-        displayCart(); // Actualizar visualización del carrito
+        displayCart(); 
     }
 }
 
@@ -230,7 +230,7 @@ document.getElementById('clear-cart')?.addEventListener('click', () => {
     }
 });
 
-// Función para manejar la compra
+// Evento para manejar la compra
 document.getElementById('buy-button')?.addEventListener('click', () => {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     
@@ -238,13 +238,30 @@ document.getElementById('buy-button')?.addEventListener('click', () => {
         alert("El carrito está vacío. Agrega productos antes de comprar.");
         return;
     }
-    
-    alert("Compra realizada con éxito! Gracias por su compra."); 
-   
-   // Limpiar el carrito después de comprar 
-   localStorage.removeItem('cart'); 
-   displayCart(); // Actualizar visualización del carrito 
+
+   // Mostrar el formulario de métodos de pago
+   document.getElementById('payment-methods').style.display = 'block';
 });
+
+// Manejar la confirmación del pago
+document.getElementById('confirm-payment')?.addEventListener('click', function() {
+   const selectedPayment = document.getElementById('payment-select').value;
+   alert(`Pago confirmado con: ${selectedPayment}`);
+
+   // Ocultar el formulario después de la confirmación
+   document.getElementById('payment-methods').style.display = 'none';
+
+   // Limpiar el carrito después de comprar
+   localStorage.removeItem('cart');
+   displayCart(); // Actualiza visualización del carrito
+});
+
+// Mostrar los productos en el carrito al cargar la página si estamos en la página del carrito
+if (window.location.pathname.includes("carrito.html")) {
+   displayCart();
+} else {
+   fetchProducts(); // Llamar a la función para obtener productos al cargar la página
+}
 
 // Mostrar los productos en el carrito al cargar la página si estamos en la página del carrito 
 if (window.location.pathname.includes("carrito.html")) { 

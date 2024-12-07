@@ -36,8 +36,18 @@
             <h2>Productos en el carrito</h2>
             <div id="cart-items-container"></div> <!-- Contenedor para los productos del carrito -->
             <p id="total">Total: $0.00</p>
-            <button id="clear-cart">Vaciar Carrito</button> <!-- Botón para vaciar el carrito -->
-            <button id="buy-button">Comprar</button> <!-- Botón para realizar la compra -->
+            <button id="clear-cart">Vaciar Carrito</button> 
+            <button id="buy-button">Comprar</button> 
+            <!-- Contenedor para métodos de pago -->
+            <div id="payment-methods" style="display:none;">
+                <h3>Método de Pago</h3>
+                <select id="payment-select">
+                    <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="efectivo">Efectivo</option>
+                </select>
+                <button id="confirm-payment">Confirmar Pago</button>
+            </div>
         </section>
     </main>
     <footer>
@@ -56,7 +66,7 @@
             <a href="https://github.com" target="_blank"><i class="fab fa-github" style="color: rgb(26, 26, 86);"></i></a> 
             <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram" style="color: #C13584;"></i></a>
             <a href="https://wa.me/541122527518" target="_blank"><i class="fab fa-whatsapp" style="color: #146130;"></i></a>
-            <a href="mailto:info@tiendajardineria.com"><i class="fas fa-envelope" style="color: #c6ccc9;"></i></a>
+            <a href="mailto:info@aviosk.com"><i class="fas fa-envelope" style="color: #c6ccc9;"></i></a>
         </nav>
         <p>&copy; 2024 Avios Textiles.Todos los derechos reservados. </p>
     </footer>

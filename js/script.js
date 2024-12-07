@@ -21,3 +21,4 @@ function moveSlide(direction) {
 
 // Mostrar la primera imagen al cargar
 showSlide(currentIndex);
+
