@@ -96,6 +96,14 @@ padding: 20px;
     max-height: calc(100vh - 200px);  /*Altura máxima con margen */
     overflow-y: auto; /* desplazamiento vertical */
  }
+ #cart-items h2 {
+    color: white; /* Cambia el color del título de productos en el carrito a blanco */
+}
+
+#payment-methods h3 {
+    color: white; /* Cambia el color del título del método de pago a blanco */
+}
+
 .car {
     color: black; /* Cambia el color del texto a negro */
 }
