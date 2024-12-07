@@ -67,8 +67,8 @@ padding: 20px;
     border-radius: 5px;
     padding: 15px;
     margin: 10px;
-    width: 200px; /* Ancho fijo */
-    height: 300px; /* Altura fija */
+    width: 300px; /* Ancho fijo */
+    height: 400px; /* Altura fija */
     display: flex;
     flex-direction: column; /* Para apilar los elementos verticalmente */
 }
@@ -79,7 +79,7 @@ padding: 20px;
 }
 
 .card img {
-    width: 100%;
+    width: 50%;
 }
 
 .card-actions {

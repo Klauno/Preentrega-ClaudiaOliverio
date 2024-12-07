@@ -22,8 +22,9 @@ function displayProducts(products) {
         const productCard = `
              <div class='card' id='product-${product.id}'>
                 <div class='card-info' >
-                    <img src='${product.thumbnail}' alt='${product.title}' /> <!-- Cargar la imagen aquí -->
                     <h3>${product.title}</h3>
+                    <img src='${product.thumbnail}' alt='${product.title}' /> <!-- Cargar la imagen aquí -->
+
                     <p>$${product.price.toFixed(2)}</p>
                 </div>
                 <div class='card-actions'>
@@ -188,9 +189,10 @@ function removeOneFromCart(productId) {
     const existingProductIndex = cart.findIndex(item => item.id === productId);
     
     if (existingProductIndex > -1) {
-        const userConfirmed = confirm(`¿Estás seguro de que deseas eliminar una unidad del producto ${productId}?`);
+        /*const userConfirmed = confirm(`¿Estás seguro de que deseas eliminar una unidad del producto ${productId}?`);
         
-        if (userConfirmed) {
+        if (userConfirmed) {*/
+        if (existingProductIndex > -1) {
             if (cart[existingProductIndex].quantity > 1) {
                 cart[existingProductIndex].quantity -= 1;
             } else { 
