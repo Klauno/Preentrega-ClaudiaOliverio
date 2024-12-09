@@ -87,21 +87,90 @@ padding: 20px;
    margin-top: auto; /* Empuja esta sección hacia abajo */
 }
 
-/* Estilos para la sección del carrito */
+/* Estilo general para el contenedor del carrito */
 #cart-items-container {
-    display: flex; /*flexbox para organizar los elementos */
-    flex-wrap: wrap; /* Permite que las tarjetas se ajusten a múltiples líneas */
-    gap: 10px; /* Espacio entre tarjetas */
-    justify-content: space-around; /* Distribuye el espacio entre tarjetas */
-    max-height: calc(100vh - 200px);  /*Altura máxima con margen */
-    overflow-y: auto; /* desplazamiento vertical */
- }
- #cart-items h2 {
-    color: white; /* Cambia el color del título de productos en el carrito a blanco */
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    margin: 0; /* Eliminar márgenes */
+    padding: 10px; /* Espaciado interno */
 }
 
-#payment-methods h3 {
-    color: white; /* Cambia el color del título del método de pago a blanco */
+/* Estilo para cada elemento del carrito */
+.cart-item {
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Centrar verticalmente los elementos */
+    margin-bottom: 10px; /* Espaciado entre productos */
+    padding: 10px; /* Espaciado interno */
+    background-color: #f8f8f8; /* Fondo claro para cada producto */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Estilo para la imagen del producto */
+.cart-item img {
+    width: 50px; /* Ancho fijo para las imágenes */
+    height: auto; /* Mantener la proporción de la imagen */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+/* Estilo para el título del producto */
+.cart-item h5 {
+    color: black; /* Cambiar el color del texto a blanco */
+    margin: 0; /* Eliminar márgenes por defecto */
+}
+
+/* Estilo para los botones de acción */
+.cart-actions {
+    display: flex; /* Usar flexbox para alinear botones horizontalmente */
+    align-items: center; /* Centrar verticalmente los botones */
+    margin-left: auto; /* Empujar hacia la derecha para alinear con el margen izquierdo */
+}
+
+/* Estilo para los botones individuales */
+.btn {
+    margin-left: 5px; /* Espacio entre los botones */
+}
+
+/* Responsividad: ajustar en pantallas pequeñas */
+@media (max-width: 600px) {
+    .cart-item {
+        flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinear a la izquierda */
+        text-align: left; /* Alinear texto a la izquierda */
+    }
+
+    .cart-actions {
+        width: 100%; /* Hacer que los botones ocupen todo el ancho disponible */
+        justify-content: space-between; /* Espacio entre botones en móviles */
+        margin-top: 5px; /* Espacio superior entre acciones y producto */
+    }
+}
+
+/* Estilo para el contenedor de métodos de pago */
+#payment-methods {
+    background-color: white; /* Fondo blanco */
+    color: black; /* Texto negro */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo para el título del método de pago */
+#payment-methods h2 {
+    color: #000;
+    margin-top: 0; /* Eliminar margen superior */
+}
+
+/* Estilo para el botón de confirmar pago */
+#confirm-payment {
+    background-color: #612981; 
+    color: white; 
+    border: none;
+    padding: 10px 15px; 
+    cursor: pointer; /* Cambiar cursor al pasar sobre el botón */
+}
+
+#confirm-payment:hover {
+    background-color:#4e1f61 ; /* Color más oscuro al pasar el mouse */
 }
 
 .car {

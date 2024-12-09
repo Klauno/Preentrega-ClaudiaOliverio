@@ -104,6 +104,10 @@ function addToCart(productId, productPrice) {
         }
         
         localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Restablecer la cantidad a 1 después de agregar al carrito
+        quantityInput.value = 1; // Restablecer a 1
+        
         alert(`Se han agregado ${quantity} unidades del producto ${productId} al carrito`);
     }).catch(error => {
         console.error('Error al agregar al carrito:', error);
@@ -123,29 +127,30 @@ async function displayCart() {
         return;
     }
 
+    
+    // Mostrar productos sin tarjeta
     for (const item of cart) {
-        console.log(`Cargando producto ID: ${item.id}, Thumbnail: ${item.thumbnail}`); // Para depuración
         const itemTotal = item.price * item.quantity; // Calcular total por ítem
         total += itemTotal; // Sumar al total general
         
         const cartItem = `
-            <div class='card' id='cart-item-${item.id}'>
-                <div class='card-info'>
-                    <img src='${item.thumbnail}' alt='${item.title}' /> <!-- Usar la URL de la imagen almacenada -->
-                    <h5>${item.title}</h5> <!-- Mostrar el título del producto -->
-                    <p class= "car">Precio: $${item.price} x ${item.quantity} unidades</p>
-                    <p class= "car">Total por producto: $${itemTotal.toFixed(2)}</p>
-                </div>
-                <div class='card-actions'>
-                    Cantidad: 
-                    <input type='number' min='1' value='${item.quantity}' id='quantity-${item.id}' style='width: 60px;' onchange='updateQuantity("${item.id}")'>
-                    <button onclick='addMore("${item.id}", ${item.price})' class='btn btn-success'>Agregar</button>
-                    <button onclick='removeOneFromCart("${item.id}")' class='btn btn-warning'>Eliminar una unidad</button>
-                    <button onclick='removeFromCart("${item.id}")' class='btn btn-danger'>Eliminar todo</button>
-                </div>
-            </div>`;
+        <div class='cart-item' id='cart-item-${item.id}'>
+            <div class='card-info'>
+                <img src='${item.thumbnail}' alt='${item.title}' />
+                <h5 style="color: black;">${item.title}</h5> <!-- Cambiar a negro -->
+                <p class="car">Precio: $${item.price.toFixed(2)} por unidad</p>
+                <p class="car">Total por producto: $${itemTotal.toFixed(2)}</p>
+            </div>
+            <div class='card-actions'>
+                Cantidad: 
+                <input type='number' min='1' value='${item.quantity}' id='quantity-${item.id}' style='width: 60px;' onchange='updateQuantity("${item.id}")'>
+                <button onclick='addMore("${item.id}", ${item.price})' class='btn btn-success'>Agregar</button>
+                <button onclick='removeOneFromCart("${item.id}")' class='btn btn-warning'>Eliminar una unidad</button>
+                <button onclick='removeFromCart("${item.id}")' class='btn btn-danger'>Eliminar todo</button>
+            </div>
+        </div>`;
         
-        cartItemsContainer.innerHTML += cartItem; 
+        cartItemsContainer.innerHTML += cartItem; // Agregar el producto al contenedor
     }
 
     // Actualizar el total en la interfaz
