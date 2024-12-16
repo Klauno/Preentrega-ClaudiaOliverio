@@ -125,7 +125,7 @@ function addToCart(productId, productPrice, availableQuantity) {
     }).catch(error => {
         console.error('Error al agregar al carrito:', error);
     });
-    localStorage.setItem('cart', JSON.stringify(cart));
+    
 }
 // Función para mostrar los productos en el carrito
 async function displayCart() {
