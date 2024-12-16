@@ -161,12 +161,17 @@ async function displayCart() {
                 </div>
             </div>`;
         
-        cartItemsContainer.innerHTML += cartItem; // Agregar el producto al contenedor
+        cartItemsContainer.innerHTML += cartItem; // Agrega el producto al contenedor
     }
 
-    document.getElementById('total').innerText = `Total: $${total.toFixed(2)}`; // Actualizar total en la interfaz
+    const iva = total * 0.21; // Calcula IVA
+    const totalConIva = total + iva; // Total con IVA
+    document.getElementById('total').innerHTML = `
+    <strong>Total sin IVA:</strong> $${total.toFixed(2)}<br>
+    <strong>IVA (21%):</strong> $${iva.toFixed(2)}<br>
+    <strong>Total a pagar:</strong> $${totalConIva.toFixed(2)}
+`;
 }
-
 
 // Función para agregar más unidades de un producto en el carrito
 function addMore(productId, productPrice) {
